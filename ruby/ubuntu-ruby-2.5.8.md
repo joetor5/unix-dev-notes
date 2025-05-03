@@ -1,7 +1,7 @@
 # Installing Ruby 2.5.8 on Ubuntu 24.04
 
-Ubuntu 24.04 ships with OpenSSL 3.0. This will cause issues when compiling an older version of Ruby (such as 2.5.8), 
-since older Rubies may require OpenSSL 1.x.
+Ubuntu 24.04 ships with [OpenSSL](https://github.com/openssl/openssl) 3.0. This causes issues when compiling Ruby 2.5.8,
+since older Rubies may require OpenSSL 1.x. when building from source.
 
 ## Install Prerequisites
 
@@ -12,7 +12,7 @@ sudo apt install build-essential ca-certificates zlib1g-dev libyaml-dev libicu-d
 
 ## Install OpenSSL 1.1.1w
 
-Compile and install the latest stable OpenSSL 1.x ( OpenSSL 1.1.1w) before installing Ruby 2.5.8.
+Compile and install the latest stable OpenSSL 1.x (OpenSSL 1.1.1w) before installing Ruby 2.5.8.
 
 ```bash
 wget https://github.com/openssl/openssl/releases/download/OpenSSL_1_1_1w/openssl-1.1.1w.tar.gz
@@ -28,8 +28,12 @@ ln -s /etc/ssl/certs $HOME/.openssl/1.1.1w/certs
 
 ## Install Ruby 2.5.8
 
-Install Ruby 2.5.8 using [rvm](https://rvm.io/), pointing to the OpenSSL 1.1.1w directory.
+Install Ruby 2.5.8 using [rvm](https://rvm.io/), pointing to the OpenSSL 1.1.1w installed directory.
 
 ```bash
 rvm install ruby-2.5.8 --with-openssl-dir=$HOME/.openssl/1.1.1w
 ```
+
+## Motivation
+
+I needed Ruby 2.5.8 to build the [bitcoin.org](https://bitcoin.org/) site locally to test contributions. As of 05/03/2025, this is the required Ruby version to install the dependencies and build the site.
