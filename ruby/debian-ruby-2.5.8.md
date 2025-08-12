@@ -1,6 +1,6 @@
-# Installing Ruby 2.5.8 on Ubuntu 24.04
+# Installing Ruby 2.5.8 on Debian 12 / Ubuntu 24.04
 
-Ubuntu 24.04 ships with [OpenSSL](https://github.com/openssl/openssl) 3.0. This causes issues when compiling Ruby 2.5.8,
+The [OpenSSL](https://github.com/openssl/openssl) version included in Debian 12 / Ubuntu 24.04 repositories is 3.0. This causes issues when compiling Ruby 2.5.8,
 since older Rubies may require OpenSSL 1.x. when building from source.
 
 ## Install Prerequisites
